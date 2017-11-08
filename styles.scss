@@ -27,6 +27,10 @@ body {
     box-shadow: 0px 0px 14px 0px lightgrey;
     padding: 50px;
     overflow: hidden;
+
+    @media screen and (max-width: 800px) {
+        padding: 50px 25px;
+    }
 }
 
 .view-buttons {
@@ -61,6 +65,10 @@ body {
     transition: background .1s, border .1s;
     cursor: pointer;
     position: relative;
+
+    @media screen and (max-width: 800px) {
+        min-width: 225px;
+    }
 
     img {
         width: 100%;
@@ -159,7 +167,6 @@ body {
     border-top-right-radius: 3px;
 }
 
-
 // modal
 
 .modal {
@@ -176,10 +183,9 @@ body {
     transition: left .6s 0s;
 
     &--hidden {
-        left: -150%
+        left: -150%;
     }
 }
-
 
 .modal__image-container {
     position: absolute;
@@ -192,7 +198,6 @@ body {
         top: -200%;
     }
 }
-
 
 .modal__image {
     width: 100%;
@@ -224,7 +229,6 @@ body {
     }
 }
 
-
 // album styling
 
 .album {
@@ -233,6 +237,10 @@ body {
     padding: 30px 50px;
     background: rgba(211, 211, 211, 0.11);
     box-shadow: 0 0 11px 0px rgba(128, 128, 128, 0.31) inset;
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
 }
 
 h3.album__title {
