@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Photo Album</title>
+        <link rel="stylesheet" href="./styles.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <div class="photo-album-wrapper">
+            <div class="view-buttons">
+                <button class="view-button view-button--no-albums button-selected">Hide Albums</button>
+                <button class="view-button view-button--albums button-unselected">Show Albums</button>
+            </div>
+
+            <div class="photo-grid photo-grid-albums photo-grid--hidden">
+                <script id="photos-albums-template" type="text/x-handlebars-template">
+                    <!-- loop over each album. Then, for each album, loop over each photo. If the IDs match, add photo -->
+
+                    {{#each albumsArray}}
+
+                        <div class="album">
+                            <h3 class="album__title">Album #{{id}}</h3>
+                            <div class="album__photo-containers">
+                            {{#each ../photosArray}}
+                                {{#matchID albumId ../id}}
+                                <div class="photo-container">
+                                    <!-- <img  class="photo-container__image" src={{url}}> -->
+                                    <img  class="photo-container__image" src={{unsplashURL}}>
+                                    <p class="photo-container__title" >{{title}}</p>
+                                </div>
+                                {{/matchID}}
+                            {{/each}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </script>
+            </div>
+
+            <div class="photo-grid photo-grid-no-albums">
+                <script id="photos-no-albums-template" type="text/x-handlebars-template">
+                    {{#each photosArray}}
+                    <div class="photo-container">
+                        <!-- loading icon -->
+<!--                         <div class="photo-container__loading-icon"><img src="./images/loading-ripple.svg"></div> -->
+                        <!-- <img  class="photo-container__image" src={{url}}> -->
+                        <img class="photo-container__image" src={{unsplashURL}}>
+<!--                         <p>Album ID: {{albumId}}</p> -->
+                        <p class="photo-container__title" ><span class="photo-container__id-caption">{{showID id}}</span> {{title}}</p>
+                    </div>
+                    {{/each}}
+                </script>
+            </div>
+
+        </div>
+
+        <div class="modal modal--hidden">
+            <div class="modal__image-container modal__image-container--hidden">
+                <img src="#" class="modal__image">
+                <p class="modal__title"></p>
+            </div>
+            <div class="modal__close-modal modal__close-modal--hidden"></div>
+        </div>
+
+        <!-- scripts -->
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+        <script src="./template.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>

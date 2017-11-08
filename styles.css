@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+  color: gray;
+}
+
+.photo-album-wrapper {
+  width: 85%;
+  margin: 50px auto;
+  border-radius: 2px;
+  background: radial-gradient(circle, rgba(211, 211, 211, 0.4), white);
+  box-shadow: 0px 0px 14px 0px lightgrey;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.view-buttons {
+  width: 100%;
+  text-align: center;
+}
+
+.photo-grid {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  max-height: 10000px;
+  transition: max-height 2.5s 0s;
+}
+.photo-grid.photo-grid-albums.photo-grid--hidden {
+  max-height: 0;
+  transition: max-height 1s -.5s;
+}
+
+.photo-container {
+  width: 25%;
+  padding: 40px 40px 30px;
+  text-align: center;
+  margin-top: 20px;
+  min-height: 250px;
+  min-width: 200px;
+  border: 1px solid transparent;
+  transition: background .1s, border .1s;
+  cursor: pointer;
+  position: relative;
+}
+.photo-container img {
+  width: 100%;
+  border: 1px solid rgba(175, 173, 173, 0.2);
+  transition: transform .2s;
+}
+.photo-container .photo-container__title {
+  font-size: .8em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.photo-container .photo-container__id-caption {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+.photo-container .photo-container__loading-icon {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  width: 40%;
+}
+.photo-container .photo-container__loading-icon img {
+  border: none;
+}
+.photo-container .photo-container__loading-icon.loading-hidden {
+  display: none;
+}
+.photo-container:hover {
+  background: white;
+  border: 1px solid rgba(211, 211, 211, 0.6);
+}
+.photo-container:hover img {
+  transform: scale(1.02);
+}
+
+.view-buttons {
+  width: 60%;
+  text-align: center;
+  height: 40px;
+  margin: 30px auto;
+  border-radius: 3px;
+  border: 1px solid rgba(211, 211, 211, 0.54);
+}
+@media screen and (max-width: 1100px) {
+  .view-buttons {
+    width: 100%;
+  }
+}
+
+.view-button {
+  width: 50%;
+  float: left;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  color: gray;
+  background-color: transparent;
+  outline: none;
+  font-size: 1em;
+}
+@media screen and (max-width: 1000px) {
+  .view-button {
+    font-size: .85em;
+  }
+}
+
+.view-button.button-selected {
+  background: linear-gradient(to bottom right, #0909b4, #0e0a55);
+  color: white;
+  pointer-events: none;
+}
+
+.view-button.button-unselected {
+  transition: background .2s;
+}
+.view-button.button-unselected:hover {
+  background: #d9d6d6;
+}
+
+.view-button--no-albums {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.view-button--albums {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  transition: left .6s 0s;
+}
+.modal--hidden {
+  left: -150%;
+}
+
+.modal__image-container {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  top: 10%;
+  transition: top .7s .4s;
+}
+.modal__image-container--hidden {
+  top: -200%;
+}
+
+.modal__image {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modal__title {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1.3em;
+  color: white;
+}
+
+.modal__close-modal {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background: url("./images/cancel.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  transition: top .5s .3s;
+  cursor: pointer;
+}
+.modal__close-modal--hidden {
+  top: -200px;
+}
+
+.album {
+  width: 80%;
+  margin: 20px auto;
+  padding: 30px 50px;
+  background: rgba(211, 211, 211, 0.11);
+  box-shadow: 0 0 11px 0px rgba(128, 128, 128, 0.31) inset;
+}
+
+h3.album__title {
+  font-size: 1.3em;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.album__photo-containers {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.album__photo-containers .photo-container {
+  width: 30%;
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
