@@ -194,6 +194,16 @@ body {
     top: 10%;
     transition: top .7s .4s;
 
+    @media screen and (max-width: 700px) {
+        top: 25%;
+        width: 70%;
+    }
+
+    @media screen and (max-width: 500px) {
+        top: 25%;
+        width: 90%;
+    }
+
     &--hidden {
         top: -200%;
     }
