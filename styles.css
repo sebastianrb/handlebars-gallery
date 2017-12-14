@@ -47,7 +47,7 @@ body {
 
 .photo-container {
   width: 25%;
-  padding: 40px 40px 30px;
+  padding: 40px 30px 30px;
   text-align: center;
   margin-top: 20px;
   min-height: 250px;
@@ -66,6 +66,7 @@ body {
   width: 100%;
   border: 1px solid rgba(175, 173, 173, 0.2);
   transition: transform .2s;
+  min-width: 150px;
 }
 .photo-container .photo-container__title {
   font-size: .8em;
@@ -176,15 +177,21 @@ body {
   top: 10%;
   transition: top .7s .4s;
 }
+@media screen and (max-width: 790px) {
+  .modal__image-container {
+    top: 15%;
+    width: 60%;
+  }
+}
 @media screen and (max-width: 700px) {
   .modal__image-container {
-    top: 25%;
+    top: 22%;
     width: 70%;
   }
 }
 @media screen and (max-width: 500px) {
   .modal__image-container {
-    top: 25%;
+    top: 24%;
     width: 90%;
   }
 }
